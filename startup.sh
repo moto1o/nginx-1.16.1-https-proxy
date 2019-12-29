@@ -10,4 +10,4 @@
 crond -l 2 -b
 
 # Start nginx in foreground
-nginx
+nginx -g "daemon off;"
