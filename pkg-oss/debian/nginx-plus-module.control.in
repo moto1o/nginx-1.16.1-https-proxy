@@ -1,0 +1,32 @@
+Source: nginx-module-%%MODULE%%
+Section: httpd
+Priority: optional
+Maintainer: %%MODULE_PACKAGE_VENDOR%%
+Build-Depends: debhelper (>= 9~),
+               dpkg-dev (>= 1.16.1~),
+               quilt (>= 0.46-7~),
+               lsb-release,
+               libssl-dev (>= 1.0.1),
+               libpcre3-dev,
+               zlib1g-dev%%MODULE_BUILD_DEPENDS%%
+Standards-Version: 3.9.8.0
+Homepage: %%MODULE_PACKAGE_URL%%
+
+Package: nginx-plus-module-%%MODULE%%
+Architecture: any
+Depends: ${misc:Depends},
+         ${shlibs:Depends},
+         nginx-plus-r%%PLUS_VERSION%%%%MODULE_DEPENDS%%%%ADD_CONTROL_TAGS%%
+Provides: nginx-plus-module-%%MODULE%%-r%%PLUS_VERSION%%
+Description: %%SUMMARY%%
+ %%SHORT_SUMMARY%% for NGINX Plus
+
+Package: nginx-plus-module-%%MODULE%%-dbg
+Architecture: any
+Section: debug
+Priority: extra
+Depends: nginx-plus-r%%PLUS_VERSION%%,
+         nginx-plus-module-%%MODULE%% (= %%VERSION_PREFIX%%%%MODULE_VERSION%%-%%MODULE_RELEASE%%~%%CODENAME%%),
+         ${misc:Depends}
+Description: debug symbols for the nginx-plus-module-%%MODULE%%
+ %%SHORT_SUMMARY%% for NGINX Plus (debug symbols)
