@@ -7,7 +7,7 @@
 #fi
 
 # Start crond in background
-crond -l 2 -b
+crond
 
 # Start nginx in foreground
 nginx -g "daemon off;"
